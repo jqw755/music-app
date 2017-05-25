@@ -1,21 +1,29 @@
 <template>
   <div class="container">
-    <p>本次为您搜索到<span>{{data.songCount}}</span>条歌曲</p>
-    <div class="list">
-      <ul class="song_list clear_fix">
-        <li class="song_item" v-for="item in data.songs">
-          <router-link :to="`/Music?id=${item.id}`">
-            <span class="pic">
-              <img :src="item.album.picUrl" alt="">
-            </span>
-            <span class="song_info">
-              <span class="singer">{{item.artists[0].name}}</span>
-              <span class="album">{{item.album.name}}</span>
-            </span>
-          </router-link>
-        </li>
-      </ul>
-    </div>
+    <mu-appbar>
+      <mu-text-field icon="search" class="appbar-search-field" slot="left" hintText="请输入搜索内容"/>
+    </mu-appbar>
+    <mobile-tear-sheet>
+      <mu-list>
+        <mu-sub-header>本次为您搜索到<span>{{data.songCount}}</span>条歌曲</mu-sub-header>
+        <div v-for="item in data.songs">
+          <mu-list-item :title="item.name">
+            <mu-avatar :src="item.album.picUrl" slot="leftAvatar"/>
+            <span slot="describe">
+              <span style="color: rgba(0, 0, 0, .87)">{{item.artists[0].name}}</span>
+              <br/>
+              <span>{{item.album.name}}</span>
+          </span>
+            <mu-icon-menu slot="right" icon="more_vert" tooltip="操作">
+              <mu-menu-item title="详情" :to="`/Music?id=${item.id}`"/>
+              <mu-menu-item title="喜欢"/>
+            </mu-icon-menu>
+          </mu-list-item>
+          <mu-divider inset/>
+        </div>
+      </mu-list>
+    </mobile-tear-sheet>
+    <!--https://api.imjad.cn/cloudmusic/?type=search&s=zhoujielun-->
   </div>
 
 
@@ -75,7 +83,7 @@
             vertical-align middle
         .song_info
           display inline-block
-          max-width 75%
+          max-width 70%
           max-height 4em
           overflow hidden
           white-space nowrap

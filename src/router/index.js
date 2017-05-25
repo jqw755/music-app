@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import VueResource from 'vue-resource'
 import Index from '../components/Index'
 import Music from '../components/Music'
+import Home from '../components/Home'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -16,12 +17,16 @@ export default new Router({
       component: Index
     },
     {
-      path: '/Index',
+      path: '/index',
       component: Index
     },
     {
-      path: '/Music',
+      path: '/music',
       component: Music
+    },
+    {
+      path: '/home',
+      component: Home
     }
   ],
   // 让每个页面都滚动到顶部，改变模式为mode: history

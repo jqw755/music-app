@@ -1,7 +1,7 @@
 # music-app
-<<<<<<< 815f0341821f0b573cf124566b21d2be73622f63
+
 The transfer of NetEase cloud music API to achieve a small VOD platform
-=======
+
 
 > music-app for vue
 
