@@ -1,7 +1,7 @@
 {
-  "name": "music-app",
+  "name": "music",
   "version": "1.0.0",
-  "description": "music-app for vue",
+  "description": "music for vue",
   "author": "jingqw <1948093496@qq.com>",
   "private": true,
   "scripts": {

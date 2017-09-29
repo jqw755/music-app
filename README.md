@@ -1,9 +1,9 @@
-# music-app
+# music
 
 The transfer of NetEase cloud music API to achieve a small VOD platform
 
 
-> music-app for vue
+> music for vue
 
 ## Build Setup
 
@@ -21,5 +21,4 @@ npm run build
 npm run build --report
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
->>>>>>> init project
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader)

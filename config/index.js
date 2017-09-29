@@ -23,11 +23,29 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8080,
+    port: 8081,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    //proxyTable参数主要是一个地址映射表，你可以通过设置将复杂的url简化
+    proxyTable: {
+      '/api': {
+        target: 'https://api.imjad.cn/cloudmusic/',
+        //changeOrigin,,本地会虚拟一个服务端接收你的请求并代你发送该请求，这样就不会有跨域问题了，当然这只适用于开发环境,
+        // 线上不会将该代码打包发布,所以发布时候不用任何修改
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      },
+      // '/html5': {
+      //   target: 'http://m.douyu.com/html5/live',
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/html5': ''
+      //   }
+      // },
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)

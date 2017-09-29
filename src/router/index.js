@@ -1,12 +1,11 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import VueResource from 'vue-resource'
-import Index from '../components/Index'
-import Music from '../components/Music'
-import Home from '../components/Home'
+import Vue from 'vue';
+import Router from 'vue-router';
+import VueResource from 'vue-resource';
+import Music from '../views/music/music.vue';
+import Home from '../views/home/home.vue';
 
-Vue.use(Router)
-Vue.use(VueResource)
+Vue.use(Router);
+Vue.use(VueResource);
 
 export default new Router({
   mode: 'history',//html5模式 去掉锚点
@@ -14,14 +13,10 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Index
+      component: Home
     },
     {
-      path: '/index',
-      component: Index
-    },
-    {
-      path: '/music',
+      path: '/music/:id',
       component: Music
     },
     {

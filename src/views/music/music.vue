@@ -40,11 +40,11 @@
       }
     },
     methods: {
-      getQuery() {
-        let u = window.location.href,
-          m = u.split('id=');
-        return m[1];
-      },
+//      getQuery() {
+//        let u = window.location.href,
+//          m = u.split('id=');
+//        return m[1];
+//      },
       playAudio(){
         const t_audio = document.getElementById('_audio');
         if (this.isPlaying === false) {
@@ -86,7 +86,7 @@
       }
     },
     mounted: function () {
-      const song_id = this.getQuery('id');
+      const song_id = this.$route.params.id;
       this.id = song_id;
       this.$http.get('https://api.imjad.cn/cloudmusic/?type=detail&id=' + song_id)  //detail
         .then(function (data) {
@@ -131,7 +131,7 @@
   }
 </script>
 
-<style lang="stylus">
+<style scoped="scoped" lang="stylus">
   .lyric
     width 80%
     height 30px
@@ -145,9 +145,9 @@
     color #fff
     margin 0
     margin-bottom 5%
-  /*color #a93d3d*/
   .content
     width 100%
+    margin-top 3rem
     overflow hidden
     .bg
       margin 0
@@ -170,16 +170,17 @@
       margin-bottom 0
     .song_pic_wrapper
       width 100%
-      height 16em
+      height 25rem
       .song_pic
-        width 16em
-        height 16em
+        width 16rem
+        height 16rem
         border-radius 50%
         border 22px solid #000
         -webkit-box-shadow 0px 0px 20px red
         box-shadow 0px 0px 35px red
         margin 0 auto
         overflow hidden
+        z-index:2;
         img
           display inline-block
           width 100%
